@@ -18,13 +18,17 @@ def index():
 @app.route("/scrape")
 def scrape_news():
 
-    # Run scrape function
-
+    # Connect to mongodb
     mars_db = mongo.db.mars_db
+
+    # Scrape news
     mars_data = scrape_mars.scrape_news()
 
     # Testing second scrape function
     mars_data = scrape_mars.scrape_jpl()
+
+    # Scrape hemisphere images
+    mars_data = scrape_mars.scrape_hemispheres()
 
     mars_db.update({}, mars_data, upsert=True)
     

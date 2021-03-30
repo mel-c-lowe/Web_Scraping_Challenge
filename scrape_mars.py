@@ -34,7 +34,6 @@ def scrape_news():
 def scrape_jpl():
 
     # Initialize browser
-    # Initialize browser
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
 
@@ -55,3 +54,48 @@ def scrape_jpl():
     return mars_data
 
     browser.quit()
+
+image_urls = []
+
+def scrape_hemispheres():
+
+    # Initialize browser
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
+
+    # Portion of function for hemisphere images
+
+    hemisphere_url = 'https://marshemispheres.com/'
+    browser.visit(hemisphere_url)
+    html = browser.html
+    soup = BS(html, 'html.parser')
+
+    images = soup.find_all('div', class_='item')
+
+    for image in images:
+
+        # Grab link of first image to tell browser to move to
+        partial_img_url = image.find('a', class_='itemLink product-item')['href']
+
+        # Visit link of full image
+        browser.visit(hemisphere_url + partial_img_url)
+
+        # Set up html object for newly visited page
+        partial_img_html = browser.html
+
+        # Parse the new page with beautifulsoup
+        soup = BS(partial_img_html, 'html.parser')
+        
+        # Retrieve the full size image source
+        img_url = hemisphere_url + soup.find('img', class_='wide-image')['src']
+
+        # Pull title of image
+        title = soup.find('h2', class_='title').text
+
+        # Append new values to list of dictionaries
+        image_urls.append({"title": title, "img_url": img_url})
+
+        return mars_data
+
+    browser.quit()
+
