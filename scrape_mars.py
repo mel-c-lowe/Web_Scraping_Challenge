@@ -26,4 +26,6 @@ def scrape_news():
     mars_data["news_title"] = news_title
     mars_data["article_teaser"] = article_teaser
 
-    print(mars_data)
+    return mars_data
+    
+    browser.quit()
