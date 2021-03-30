@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as BS
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 
-def scrape():
+def scrape_news():
 
     # Initialize browser
 
@@ -26,4 +26,4 @@ def scrape():
     mars_data["news_title"] = news_title
     mars_data["article_teaser"] = article_teaser
 
-    return mars_data
+    print(mars_data)
