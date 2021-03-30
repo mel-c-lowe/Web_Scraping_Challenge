@@ -23,6 +23,8 @@ def scrape_news():
     mars_db = mongo.db.mars_db
     mars_data = scrape_mars.scrape_news()
 
+    # Testing second scrape function
+    mars_data = scrape_mars.scrape_jpl()
 
     mars_db.update({}, mars_data, upsert=True)
     
