@@ -30,6 +30,9 @@ def scrape_news():
     # Scrape hemisphere images
     mars_data = scrape_mars.scrape_hemispheres()
 
+    #Scrape mars_facts table
+    mars_data = scrape_mars.scrape_table()
+
     mars_db.update({}, mars_data, upsert=True)
     
     return redirect("/", code=302)

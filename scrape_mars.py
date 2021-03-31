@@ -1,4 +1,5 @@
 # Dependencies
+import pandas as pd
 from bs4 import BeautifulSoup as BS
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
@@ -101,3 +102,29 @@ def scrape_hemispheres():
 
     browser.quit()
 
+def scrape_table():
+
+    # Initialize browser
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
+
+    # Portion of function for Mars facts
+
+    facts_url = 'https://galaxyfacts-mars.com/'
+    browser.visit(facts_url)
+    html = browser.html
+    soup = BS(html, 'html.parser')
+
+    # Pull all the tables on the page
+    tables = pd.read_html(facts_url)
+
+    # Isolate the desired table
+    mars_facts = tables[0]
+
+    # Convert to html table string
+    mars_html = mars_facts.to_html('mars_facts.html')
+
+    # Add to database
+    mars_data["mars_facts"] = mars_html
+
+    return mars_data
