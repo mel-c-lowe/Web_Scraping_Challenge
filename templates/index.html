@@ -5,7 +5,7 @@
 <head>
 
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>Weather Analysis by Cities and Latitude</title>
+    <title>Mission to Mars</title>
     
     <!-- Bring in our bootstrap stylesheet -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,6 +15,31 @@
 </head>
 
 <body>
+
+    
+    <div class="container">
+
+        <!--Set up top jumbotron-->
+        <div class="jumbotron text-center">
+            <!--Test Rendering Text-->
+            <h1>Let's Get Some Data On Mars!</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data</a></p>
+        </div>
+        <!--Close jumbotron-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Latest News</h2>
+                <p>{{mars_db.news_title}}</p>
+                <p>{{mars_db.article_teaser}}</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
 
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

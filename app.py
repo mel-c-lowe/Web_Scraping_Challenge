@@ -2,17 +2,27 @@
 from flask import Flask, render_template, redirect 
 from flask_pymongo import PyMongo
 import scrape_mars
+import pymongo
 
 # Create flask app
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/app")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
+
+# setup mongo connection
+conn = "mongodb://localhost:27017"
+client = pymongo.MongoClient(conn)
+
+# connect to mongo db and collection
+db = client.app
+mars_db = db.mars_db
 
 # Route at index
 @app.route("/")
 def index():
-    return "Hello, Mars! Let's get data!"
+    # return "Hello, Mars! Let's get data!"
+    return render_template("index.html", mars_db=mars_db)
 
 # Testing initial news scrape
 @app.route("/scrape")

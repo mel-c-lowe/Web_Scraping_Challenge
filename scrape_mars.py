@@ -127,7 +127,13 @@ def scrape_table():
     mars_facts.set_index('Mars - Earth Comparison', inplace=True)
 
     # Convert to html table string
-    mars_html = mars_facts.to_html('mars_facts.html')
+    # mars_html = mars_facts.to_html('mars_facts.html')
+    mars_html = mars_facts.to_html()
+
+
+    #html_table = mars_facts.to_html()
+    # mars_html = mars_html.replace('\n', '')
+    # scrape_dict['mars_facts_table'] = html_table
 
     # Add to database
     # This is not adding to my database and I don't know why
