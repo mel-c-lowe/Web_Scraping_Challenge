@@ -22,6 +22,10 @@ mars_db = db.mars_db
 @app.route("/")
 def index():
     # return "Hello, Mars! Let's get data!"
+
+    # listings = mongo.db.listings.find_one()
+    mars_stuff = mongo.db.mars_stuff.find_one()
+
     return render_template("index.html", mars_db=mars_db)
 
 # Testing initial news scrape

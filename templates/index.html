@@ -27,13 +27,16 @@
         </div>
         <!--Close jumbotron-->
 
+        <!--Enclose cards/rows/elements in jinja2 syntax to pull from db-->
+        {% for element in mars_stuff %}}
         <div class="row">
             <div class="col-md-12">
                 <h2>Latest News</h2>
-                <p>{{mars_db.news_title}}</p>
-                <p>{{mars_db.article_teaser}}</p>
+                <p>{{mars_stuff.news_title}}</p>
+                <p>{{element.mars_stuff.article_teaser}}</p>
             </div>
         </div>
+        {% endfor %}
 
     </div>
 
