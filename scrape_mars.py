@@ -95,7 +95,9 @@ def scrape_hemispheres():
         # Append new values to list of dictionaries
         image_urls.append({"title": title, "img_url": img_url})
 
-        return mars_data
+        mars_data["hemisphere_img_urls"] = image_urls
+
+    return mars_data
 
     browser.quit()
 
