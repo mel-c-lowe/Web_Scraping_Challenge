@@ -16,7 +16,7 @@ def index():
 
 # Testing initial news scrape
 @app.route("/scrape")
-def scrape_news():
+def scrape_all():
 
     # Connect to mongodb
     mars_db = mongo.db.mars_db

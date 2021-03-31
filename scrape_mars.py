@@ -121,10 +121,18 @@ def scrape_table():
     # Isolate the desired table
     mars_facts = tables[0]
 
+    # Clean up header and index
+    mars_facts.columns = mars_facts.iloc[0]
+    mars_facts = mars_facts.drop(mars_facts.index[0])
+    mars_facts.set_index('Mars - Earth Comparison', inplace=True)
+
     # Convert to html table string
     mars_html = mars_facts.to_html('mars_facts.html')
 
     # Add to database
+    # This is not adding to my database and I don't know why
     mars_data["mars_facts"] = mars_html
 
     return mars_data
+
+    browser.quit()
