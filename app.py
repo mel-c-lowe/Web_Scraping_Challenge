@@ -28,7 +28,7 @@ def index():
 
     # hemispheres - mars_db.hemisphere_img_url
 
-    return render_template("index.html", mars_db=mars_db, hemispheres=hemispheres)
+    return render_template("index.html", mars_db=mars_db)
 
 # Testing initial news scrape
 @app.route("/scrape")

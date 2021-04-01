@@ -56,19 +56,18 @@
 
        <!--Row with all the hemisphere images as large thumbnails-->
        <div class="row">
-           <!--Trying a for loop-->
-           {% for hemisphere in mars_db %}
-           <div class="col-md-3">
-               <h4>{{ hemisphere.title }}</h4>
-               
-           </div>
-           {% endfor %}
-       </div>
+        <!--Trying a for loop-->
+        {% for hemisphere in mars_db.hemisphere_img_urls %}
+            <div class="col-md-3">
+            <h4>{{ hemisphere.title }}</h4>
+            <img src="{{ hemisphere.img_url }}" width="100%", height="90%">     
+            </div>
+        {% endfor %}
+        </div>
+        <!--Close hemisphere images as large thumbnails-->
 
 
-
-
-    </div>
+     </div>
 
 
 
