@@ -22,7 +22,7 @@
         <!--Set up top jumbotron-->
         <div class="jumbotron text-center">
             <!--Test Rendering Text-->
-            <h1>Let's Get Some Data On Mars!</h1>
+            <h1>Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data</a></p>
         </div>
         <!--Close jumbotron-->
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Latest News</h2>
-                <p>{{ mars_db.news_title }}</p>
+                <h5>{{ mars_db.news_title }}</h5>
                 <p>{{ mars_db.article_teaser }}</p>
             </div>
         </div>
@@ -39,12 +39,12 @@
 
         <!--Row with featured image and table-->
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 text-center">
                 <h2>Featured Image</h2>
                 <img src="{{ mars_db.featured_img }}">
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-5 text-center">
                 <h4>Mars Earth Comparison</h4>
                 <div class="table-responsive-md">
                     <!--Currently just showing as html, not as formatted table-->
@@ -54,13 +54,19 @@
         </div>
        <!--Close featured image and table-->
 
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Mars Hemispheres</h2>
+            </div>
+        </div>
+
        <!--Row with all the hemisphere images as large thumbnails-->
        <div class="row">
         <!--Trying a for loop-->
         {% for hemisphere in mars_db.hemisphere_img_urls %}
             <div class="col-md-3">
-            <h4>{{ hemisphere.title }}</h4>
-            <img src="{{ hemisphere.img_url }}" width="100%", height="90%">     
+            <img src="{{ hemisphere.img_url }}" width="100%", height="90%"> 
+            <h6>{{ hemisphere.title }}</h6>    
             </div>
         {% endfor %}
         </div>
