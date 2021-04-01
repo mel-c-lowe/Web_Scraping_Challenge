@@ -27,16 +27,24 @@
         </div>
         <!--Close jumbotron-->
 
-        <!--Enclose cards/rows/elements in jinja2 syntax to pull from db-->
+        <!--Show news_title and article_teaser-->
         <div class="row">
             <div class="col-md-12">
                 <h2>Latest News</h2>
                 <p>{{ mars_db.news_title }}</p>
                 <p>{{ mars_db.article_teaser }}</p>
-                <p>{{ mars_db.mars_facts }}</p>
             </div>
         </div>
-       
+        <!--Close news_title-->
+
+        <!--Row with featured image and table-->
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Featured Image</h2>
+                <img src="{{ mars_db.featured_img }}">
+            </div>
+        </div>
+       <!--Close featured image-->
 
     </div>
 
