@@ -26,7 +26,9 @@ def index():
     # listings = mongo.db.listings.find_one()
     mars_db = mongo.db.mars_db.find_one_or_404()
 
-    return render_template("index.html", mars_db=mars_db)
+    # hemispheres - mars_db.hemisphere_img_url
+
+    return render_template("index.html", mars_db=mars_db, hemispheres=hemispheres)
 
 # Testing initial news scrape
 @app.route("/scrape")

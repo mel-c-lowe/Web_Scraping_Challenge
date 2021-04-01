@@ -43,8 +43,30 @@
                 <h2>Featured Image</h2>
                 <img src="{{ mars_db.featured_img }}">
             </div>
+
+            <div class="col-md-5">
+                <h4>Mars Earth Comparison</h4>
+                <div class="table-responsive-md">
+                    <!--Currently just showing as html, not as formatted table-->
+                    {{ mars_db.mars_facts| safe }}
+                </div>
+            </div>
         </div>
-       <!--Close featured image-->
+       <!--Close featured image and table-->
+
+       <!--Row with all the hemisphere images as large thumbnails-->
+       <div class="row">
+           <!--Trying a for loop-->
+           {% for hemisphere in mars_db %}
+           <div class="col-md-3">
+               <h4>{{ hemisphere.title }}</h4>
+               
+           </div>
+           {% endfor %}
+       </div>
+
+
+
 
     </div>
 
